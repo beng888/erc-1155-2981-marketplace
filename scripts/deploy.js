@@ -1,25 +1,23 @@
 const hre = require('hardhat');
 
 async function main() {
-  const NFTMint = await hre.ethers.getContractFactory('NFTMint');
-  const nftMint = await NFTMint.deploy();
+  const TokenController = await hre.ethers.getContractFactory('TokenController');
+  const tokenController = await TokenController.deploy();
 
-  await nftMint.deployed();
+  await tokenController.deployed();
 
-  console.log('NFTMint deployed to:', nftMint.address);
+  console.log('TokenController deployed to:', tokenController.address);
 
-  // For MarketPlace
+  //* For MarketPlace
 
   const Marketplace = await hre.ethers.getContractFactory('Marketplace');
-  const marketplace = await Marketplace.deploy(nftMint.address);
+  const marketplace = await Marketplace.deploy(tokenController.address);
 
   await marketplace.deployed();
 
   console.log('Marketplace deployed to:', marketplace.address);
 }
 
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
 main()
   .then(() => process.exit(0))
   .catch((error) => {

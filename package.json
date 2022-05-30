@@ -1,5 +1,17 @@
 {
-  "name": "hardhat-project",
+  "name": "erc-1155-2981-marketplace",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy": "node scripts/deploy.js",
+    "deploy:rinkeby": "hardhat run scripts/deploy.js --network rinkeby"
+  },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.5",
     "@nomiclabs/hardhat-waffle": "^2.0.3",
